@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/SmartCoder"/>
+    <qresource prefix="/skins">
+        <file>Resources/skins/skin7.png</file>
+    </qresource>
+    <qresource prefix="/qss">
+        <file>Resources/qss/MyTitle.css</file>
+    </qresource>
+    <qresource prefix="/imgs">
+        <file>Resources/imgs/MyTitle/close.png</file>
+        <file>Resources/imgs/MyTitle/max.png</file>
+        <file>Resources/imgs/MyTitle/min.png</file>
+        <file>Resources/imgs/MyTitle/restore.png</file>
+    </qresource>
+</RCC>
