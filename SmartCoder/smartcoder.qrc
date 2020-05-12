@@ -12,4 +12,7 @@
         <file>Resources/imgs/MyTitle/min.png</file>
         <file>Resources/imgs/MyTitle/restore.png</file>
     </qresource>
+    <qresource prefix="/icons">
+        <file>Resources/icons/icon11.png</file>
+    </qresource>
 </RCC>
