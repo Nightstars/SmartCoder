@@ -14,5 +14,7 @@
     </qresource>
     <qresource prefix="/icons">
         <file>Resources/icons/icon11.png</file>
+        <file>Resources/icons/icon1.png</file>
+        <file>Resources/icons/icon.png</file>
     </qresource>
 </RCC>

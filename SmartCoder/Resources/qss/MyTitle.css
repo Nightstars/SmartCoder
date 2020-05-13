@@ -64,3 +64,19 @@ QPushButton#ButtonClose:pressed
     border-image:url(:/imgs/Resources/imgs/MyTitle/close.png) 0 27 0 54 ;
     border-top-right-radius:3 ;
 }
+/*窗口标题*/
+QLabel#TitleContent
+{
+	font-size: 18px;
+	font-family:"Microsoft JhengHei UI";
+	font-weight:600;
+	color: ghostwhite;
+	margin-top: 3px;
+	margin-left: 0.5px;
+}
+/*标题栏图标*/
+QLabel#pIcon
+{
+	margin-left: 10px;
+	margin-top: 5px;
+}

@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 
 
 	QSplashScreen* splash = new QSplashScreen;
-	splash->setPixmap(QPixmap(":/icons/Resources/icons/icon11.png"));
+	splash->setPixmap(QPixmap(":/icons/Resources/icons/icon1.png"));
 	splash->show();
 	SmartCoder w;
 	QPropertyAnimation* animation = new QPropertyAnimation(&w, "windowOpacity");

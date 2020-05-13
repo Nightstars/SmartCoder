@@ -46,6 +46,7 @@ void MyTitleBar::initControl()
     m_pButtonMax->setFixedSize(QSize(BUTTON_WIDTH, BUTTON_HEIGHT));
     m_pButtonClose->setFixedSize(QSize(BUTTON_WIDTH, BUTTON_HEIGHT));
 
+    m_pIcon->setObjectName("pIcon");
     m_pTitleContent->setObjectName("TitleContent");
     m_pButtonMin->setObjectName("ButtonMin");
     m_pButtonRestore->setObjectName("ButtonRestore");
