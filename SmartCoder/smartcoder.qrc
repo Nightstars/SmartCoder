@@ -1,7 +1,8 @@
 <RCC>
     <qresource prefix="/SmartCoder"/>
     <qresource prefix="/skins">
-        <file>Resources/skins/skin7.png</file>
+        <file>Resources/skins/skins11.png</file>
+        <file>Resources/skins/skins11.jpg</file>
     </qresource>
     <qresource prefix="/qss">
         <file>Resources/qss/MyTitle.css</file>
@@ -11,6 +12,11 @@
         <file>Resources/imgs/MyTitle/max.png</file>
         <file>Resources/imgs/MyTitle/min.png</file>
         <file>Resources/imgs/MyTitle/restore.png</file>
+        <file>Resources/imgs/gencode.png</file>
+        <file>Resources/imgs/plugin.png</file>
+        <file>Resources/imgs/disassem.png</file>
+        <file>Resources/imgs/net.png</file>
+        <file>Resources/imgs/mine.png</file>
     </qresource>
     <qresource prefix="/icons">
         <file>Resources/icons/icon11.png</file>

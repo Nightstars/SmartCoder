@@ -22,9 +22,9 @@ public:
     // 设置标题栏背景色及是否设置标题栏背景色透明;
     void setBackgroundColor(int r, int g, int b, bool isTransparent = true);
     // 设置标题栏图标;
-    void setTitleIcon(QString filePath, QSize IconSize = QSize(25, 25));
+    void setTitleIcon(QString filePath, QSize IconSize = QSize(20, 20));
     // 设置标题内容;
-    void setTitleContent(QString titleContent, int titleFontSize = 9);
+    void setTitleContent(QString titleContent, int titleFontSize = 10);
     // 设置标题栏长度;
     void setTitleWidth(int width);
     // 设置标题栏上按钮类型;

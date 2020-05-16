@@ -1,35 +1,69 @@
-#include "smartcoder.h"
+ï»¿#include "smartcoder.h"
 
 
 SmartCoder::SmartCoder(QWidget *parent)
 	: BaseWindow(parent)
 {
 	ui.setupUi(this);
-	// ÉèÖÃÎÞ±ß¿ò
+	// è®¾ç½®æ— è¾¹æ¡†
 	this->setWindowFlags(Qt::FramelessWindowHint | Qt::WindowMinimizeButtonHint);
-	// ³õÊ¼»¯±êÌâÀ¸;
+	// åˆå§‹åŒ–æ ‡é¢˜æ ;
 	initTitleBar();
-	//ÉèÖÃ´°Ìå´óÐ¡
+	//è®¾ç½®çª—ä½“å¤§å°
 	resize(1200, 780);
-	//ÉèÖÃ´°Ìå±³¾°
+	//setAttribute(Qt::WA_TranslucentBackground, true);
 
-	#pragma region ÉèÖÃ´°Ìå±³¾°
-	this->setAutoFillBackground(true); // Õâ¾äÒª¼ÓÉÏ, ·ñÔò¿ÉÄÜÏÔÊ¾²»³ö±³¾°Í¼.
+	/*#pragma region è®¾ç½®åœ†è§’çª—ä½“
+		QBitmap bmp(this->size());
+		bmp.fill();
+		QPainter p(&bmp);
+		p.setRenderHint(QPainter::Antialiasing);
+		p.setPen(Qt::NoPen);
+		p.setBrush(Qt::black);
+		p.drawRoundedRect(bmp.rect(), 7, 7);
+		setMask(bmp);
+	#pragma endregion*/
+
+	
+
+	#pragma region è®¾ç½®çª—ä½“èƒŒæ™¯
+	this->setAutoFillBackground(true); // è¿™å¥è¦åŠ ä¸Š, å¦åˆ™å¯èƒ½æ˜¾ç¤ºä¸å‡ºèƒŒæ™¯å›¾.
 	QPalette palette = this->palette();
-	palette.setBrush(QPalette::Window,
-	QBrush(QPixmap(":/skins/Resources/skins/skin7.png").scaled(// Ëõ·Å±³¾°Í¼.
+	palette.setBrush(backgroundRole(),
+	QBrush(QPixmap(":/skins/Resources/skins/skins11.png").scaled(// ç¼©æ”¾èƒŒæ™¯å›¾.
 			this->size(),
 			Qt::IgnoreAspectRatio,
-			Qt::SmoothTransformation)));             // Ê¹ÓÃÆ½»¬µÄËõ·Å·½Ê½
+			Qt::SmoothTransformation)));             // ä½¿ç”¨å¹³æ»‘çš„ç¼©æ”¾æ–¹å¼
 	this->setPalette(palette);
 	#pragma endregion
+
+	initControl();
 }
 void SmartCoder::initTitleBar()
 {
-	// ÉèÖÃ±êÌâÀ¸ÅÜÂíµÆÐ§¹û£¬¿ÉÒÔ²»ÉèÖÃ;
+	// è®¾ç½®æ ‡é¢˜æ è·‘é©¬ç¯æ•ˆæžœï¼Œå¯ä»¥ä¸è®¾ç½®;
 	//m_titleBar->setTitleRoll();
-	m_titleBar->setTitleIcon(":/icons/Resources/icons/icon.png");
+	m_titleBar->setTitleIcon(":/icons/Resources/icons/icon.png", {18,18});
 	m_titleBar->setTitleContent(QStringLiteral("SmartCoder"));
 	m_titleBar->setButtonType(MIN_MAX_BUTTON);
 	m_titleBar->setTitleWidth(this->width());
+}
+
+void SmartCoder::initControl()
+{
+	myutils.setIcon(ui.mianlabel_icon, ":/imgs/Resources/imgs/gencode.png", { 40,40 });
+	myutils.setLabelContent(ui.mianlabel_txt, QStringLiteral("ä»£ç ç”Ÿæˆ"));
+	ui.mainframe_verticalLayout->setAlignment(Qt::AlignHCenter);
+	myutils.setIcon(ui.pluginlabel_icon, ":/imgs/Resources/imgs/plugin.png", { 40,40 });
+	myutils.setLabelContent(ui.pluginlabel_txt, QStringLiteral("æ’ä»¶ä¸­å¿ƒ"));
+	ui.pluginframe_verticalLayout->setAlignment(Qt::AlignHCenter);
+	myutils.setIcon(ui.disassemlabel_icon, ":/imgs/Resources/imgs/disassem.png", { 40,40 });
+	myutils.setLabelContent(ui.disassemlabel_txt, QStringLiteral("åæ±‡ç¼–"));
+	ui.disassemframe_verticalLayout->setAlignment(Qt::AlignHCenter);
+	myutils.setIcon(ui.netlabel_icon, ":/imgs/Resources/imgs/net.png", { 40,40 });
+	myutils.setLabelContent(ui.netlabel_txt, QStringLiteral("å†…ç½‘ç©¿é€"));
+	ui.netframe_verticalLayout->setAlignment(Qt::AlignHCenter);
+	myutils.setIcon(ui.minelabel_icon, ":/imgs/Resources/imgs/mine.png", { 40,40 });
+	myutils.setLabelContent(ui.minelabel_txt, QStringLiteral("æˆ‘çš„"));
+	ui.mineframe_verticalLayout->setAlignment(Qt::AlignHCenter);
 }

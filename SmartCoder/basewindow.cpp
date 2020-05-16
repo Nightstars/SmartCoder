@@ -12,7 +12,6 @@ BaseWindow::BaseWindow(QWidget* parent)
     this->setWindowFlags(Qt::FramelessWindowHint | Qt::WindowMinimizeButtonHint);
     // 设置窗口背景透明;
    // setAttribute(Qt::WA_TranslucentBackground);
-
     // 注意！！！如果是主窗口不要设置WA_DeleteOnClose属性;
     // 关闭窗口时释放资源;
     setAttribute(Qt::WA_DeleteOnClose);
@@ -73,6 +72,16 @@ void BaseWindow::onButtonRestoreClicked()
     QSize windowSize;
     m_titleBar->getRestoreInfo(windowPos, windowSize);
     this->setGeometry(QRect(windowPos, windowSize));
+    #pragma region 设置窗体背景
+    this->setAutoFillBackground(true); // 这句要加上, 否则可能显示不出背景图.
+    QPalette palette = this->palette();
+    palette.setBrush(backgroundRole(),
+        QBrush(QPixmap(":/skins/Resources/skins/skins11.png").scaled(// 缩放背景图.
+            this->size(),
+            Qt::IgnoreAspectRatio,
+            Qt::SmoothTransformation)));             // 使用平滑的缩放方式
+    this->setPalette(palette);
+    #pragma endregion
 }
 
 void BaseWindow::onButtonMaxClicked()
@@ -81,6 +90,16 @@ void BaseWindow::onButtonMaxClicked()
     QRect desktopRect = QApplication::desktop()->availableGeometry();
     QRect FactRect = QRect(desktopRect.x() - 3, desktopRect.y() - 3, desktopRect.width() + 6, desktopRect.height() + 6);
     setGeometry(FactRect);
+    #pragma region 设置窗体背景
+    this->setAutoFillBackground(true); // 这句要加上, 否则可能显示不出背景图.
+    QPalette palette = this->palette();
+    palette.setBrush(backgroundRole(),
+        QBrush(QPixmap(":/skins/Resources/skins/skins11.png").scaled(// 缩放背景图.
+            this->size(),
+            Qt::IgnoreAspectRatio,
+            Qt::FastTransformation)));             // 使用平滑的缩放方式
+    this->setPalette(palette);
+    #pragma endregion
 }
 
 void BaseWindow::onButtonCloseClicked()

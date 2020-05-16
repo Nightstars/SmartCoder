@@ -3,6 +3,9 @@
 #include <QtWidgets/QWidget>
 #include "ui_smartcoder.h"
 #include "basewindow.h"
+#include "utils.h"
+#include <QBitmap>
+#include <QPainter>
 
 class SmartCoder : public BaseWindow
 {
@@ -14,4 +17,7 @@ public:
 private:
 	Ui::SmartCoderClass ui;
 	void initTitleBar();
+	 // ³õÊ¼»¯¿Ø¼þ;
+	void initControl();
+	utils myutils;
 };
