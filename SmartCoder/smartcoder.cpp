@@ -19,6 +19,7 @@ SmartCoder::SmartCoder(QWidget *parent)
 	ui.disassem_label_widget->installEventFilter(this);    // 安装事件过滤器
 	ui.net_label_widget->installEventFilter(this);    // 安装事件过滤器
 	ui.mine_label_widget->installEventFilter(this);    // 安装事件过滤器
+	ui.main_page->setCurrentIndex(0);
 #pragma endregion
 
 /*#pragma region 设置圆角窗体
@@ -112,6 +113,7 @@ bool SmartCoder::eventFilter(QObject* obj, QEvent* event)
 				ui.disassem_label_widget->setStyleSheet("QWidget#disassem_label_widget{background-color: rgb(255, 255, 255,0);border-top-left-radius: 5px;border-top-right-radius: 5px;}QWidget#disassem_label_widget:hover{background-color: rgb(255, 255, 255,80);border-top-left-radius: 5px;border-top-right-radius: 5px;}");
 				ui.net_label_widget->setStyleSheet("QWidget#net_label_widget{background-color: rgb(255, 255, 255,0);border-top-left-radius: 5px;border-top-right-radius: 5px;}QWidget#net_label_widget:hover{background-color: rgb(255, 255, 255,80);border-top-left-radius: 5px;border-top-right-radius: 5px;}");
 				ui.mine_label_widget->setStyleSheet("QWidget#mine_label_widget{background-color: rgb(255, 255, 255,0);border-top-left-radius: 5px;border-top-right-radius: 5px;}QWidget#mine_label_widget:hover{background-color: rgb(255, 255, 255,80);border-top-left-radius: 5px;border-top-right-radius: 5px;}");
+				ui.main_page->setCurrentIndex(0);
 				return true;
 			}
 			else
@@ -136,6 +138,7 @@ bool SmartCoder::eventFilter(QObject* obj, QEvent* event)
 				ui.disassem_label_widget->setStyleSheet("QWidget#disassem_label_widget{background-color: rgb(255, 255, 255,0);border-top-left-radius: 5px;border-top-right-radius: 5px;}QWidget#disassem_label_widget:hover{background-color: rgb(255, 255, 255,80);border-top-left-radius: 5px;border-top-right-radius: 5px;}");
 				ui.net_label_widget->setStyleSheet("QWidget#net_label_widget{background-color: rgb(255, 255, 255,0);border-top-left-radius: 5px;border-top-right-radius: 5px;}QWidget#net_label_widget:hover{background-color: rgb(255, 255, 255,80);border-top-left-radius: 5px;border-top-right-radius: 5px;}");
 				ui.mine_label_widget->setStyleSheet("QWidget#mine_label_widget{background-color: rgb(255, 255, 255,0);border-top-left-radius: 5px;border-top-right-radius: 5px;}QWidget#mine_label_widget:hover{background-color: rgb(255, 255, 255,80);border-top-left-radius: 5px;border-top-right-radius: 5px;}");
+				ui.main_page->setCurrentIndex(1);
 				return true;
 			}
 			else
@@ -160,6 +163,7 @@ bool SmartCoder::eventFilter(QObject* obj, QEvent* event)
 				ui.disassem_label_widget->setStyleSheet("QWidget#disassem_label_widget{background-color: rgb(255, 255, 255,80);border-top-left-radius: 5px;border-top-right-radius: 5px;}QWidget#disassem_label_widget:hover{background-color: rgb(255, 255, 255,80);border-top-left-radius: 5px;border-top-right-radius: 5px;}");
 				ui.net_label_widget->setStyleSheet("QWidget#net_label_widget{background-color: rgb(255, 255, 255,0);border-top-left-radius: 5px;border-top-right-radius: 5px;}QWidget#net_label_widget:hover{background-color: rgb(255, 255, 255,80);border-top-left-radius: 5px;border-top-right-radius: 5px;}");
 				ui.mine_label_widget->setStyleSheet("QWidget#mine_label_widget{background-color: rgb(255, 255, 255,0);border-top-left-radius: 5px;border-top-right-radius: 5px;}QWidget#mine_label_widget:hover{background-color: rgb(255, 255, 255,80);border-top-left-radius: 5px;border-top-right-radius: 5px;}");
+				ui.main_page->setCurrentIndex(2);
 				return true;
 			}
 			else
@@ -184,6 +188,7 @@ bool SmartCoder::eventFilter(QObject* obj, QEvent* event)
 				ui.disassem_label_widget->setStyleSheet("QWidget#disassem_label_widget{background-color: rgb(255, 255, 255,0);border-top-left-radius: 5px;border-top-right-radius: 5px;}QWidget#disassem_label_widget:hover{background-color: rgb(255, 255, 255,80);border-top-left-radius: 5px;border-top-right-radius: 5px;}");
 				ui.net_label_widget->setStyleSheet("QWidget#net_label_widget{background-color: rgb(255, 255, 255,80);border-top-left-radius: 5px;border-top-right-radius: 5px;}QWidget#net_label_widget:hover{background-color: rgb(255, 255, 255,80);border-top-left-radius: 5px;border-top-right-radius: 5px;}");
 				ui.mine_label_widget->setStyleSheet("QWidget#mine_label_widget{background-color: rgb(255, 255, 255,0);border-top-left-radius: 5px;border-top-right-radius: 5px;}QWidget#mine_label_widget:hover{background-color: rgb(255, 255, 255,80);border-top-left-radius: 5px;border-top-right-radius: 5px;}");
+				ui.main_page->setCurrentIndex(3);
 				return true;
 			}
 			else
@@ -208,6 +213,7 @@ bool SmartCoder::eventFilter(QObject* obj, QEvent* event)
 				ui.disassem_label_widget->setStyleSheet("QWidget#disassem_label_widget{background-color: rgb(255, 255, 255,0);border-top-left-radius: 5px;border-top-right-radius: 5px;}QWidget#disassem_label_widget:hover{background-color: rgb(255, 255, 255,80);border-top-left-radius: 5px;border-top-right-radius: 5px;}");
 				ui.net_label_widget->setStyleSheet("QWidget#net_label_widget{background-color: rgb(255, 255, 255,0);border-top-left-radius: 5px;border-top-right-radius: 5px;}QWidget#net_label_widget:hover{background-color: rgb(255, 255, 255,80);border-top-left-radius: 5px;border-top-right-radius: 5px;}");
 				ui.mine_label_widget->setStyleSheet("QWidget#mine_label_widget{background-color: rgb(255, 255, 255,80);border-top-left-radius: 5px;border-top-right-radius: 5px;}QWidget#mine_label_widget:hover{background-color: rgb(255, 255, 255,80);border-top-left-radius: 5px;border-top-right-radius: 5px;}");
+				ui.main_page->setCurrentIndex(4);
 				return true;
 			}
 			else
