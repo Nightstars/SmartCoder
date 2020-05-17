@@ -1,0 +1,73 @@
+@charset "utf-8";
+/* CSS Document */
+/*代码生成*/
+QWidget#main_label_widget:hover
+{
+    background-color: rgb(255, 255, 255,80);
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+QLabel#mianlabel_txt
+{
+	font-size: 12px;
+	font-family:'黑体';
+	font-weight:bold;
+	color: ghostwhite;
+}
+/*插件中心*/
+QWidget#plugin_label_widget:hover
+{
+    background-color: rgb(255, 255, 255,80);
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+QLabel#pluginlabel_txt
+{
+	font-size: 12px;
+	font-family:'黑体';
+	font-weight:bold;
+	color: ghostwhite;
+}
+/*反汇编*/
+QWidget#disassem_label_widget:hover
+{
+    background-color: rgb(255, 255, 255,80);
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+QLabel#disassemlabel_txt
+{
+	font-size: 12px;
+	font-family:'黑体';
+	font-weight:bold;
+	color: ghostwhite;
+}
+/*内网穿透*/
+QWidget#net_label_widget:hover
+{
+    background-color: rgb(255, 255, 255,80);
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+QLabel#netlabel_txt
+{
+	font-size: 12px;
+	font-family:'黑体';
+	font-weight:bold;
+	color: ghostwhite;
+}
+/*我的*/
+QWidget#mine_label_widget:hover
+{
+    background-color: rgb(255, 255, 255,80);
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+QLabel#minelabel_txt
+{
+	font-size: 12px;
+	font-family:'黑体';
+	font-weight:bold;
+	color: ghostwhite;
+}
+

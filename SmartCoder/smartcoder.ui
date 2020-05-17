@@ -80,7 +80,7 @@
        </spacer>
       </item>
       <item>
-       <widget class="QFrame" name="main_label_frame">
+       <widget class="QWidget" name="main_label_widget" native="true">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -101,7 +101,8 @@
         </property>
         <property name="styleSheet">
          <string notr="true">background-color: rgb(255, 255, 255,80);
-border-radius: 5px;</string>
+border-top-left-radius: 5px;
+border-top-right-radius: 5px;</string>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_8">
          <item>
@@ -143,6 +144,9 @@ border-radius: 5px;</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+             <property name="buddy">
+              <cstring>main_label_widget</cstring>
              </property>
             </widget>
            </item>
@@ -199,7 +203,7 @@ border-radius: 5px;</string>
        </spacer>
       </item>
       <item>
-       <widget class="QFrame" name="plugin_label_frame">
+       <widget class="QWidget" name="plugin_label_widget" native="true">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -317,7 +321,7 @@ border-radius: 5px;</string>
        </spacer>
       </item>
       <item>
-       <widget class="QFrame" name="disassem_label_frame">
+       <widget class="QWidget" name="disassem_label_widget" native="true">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -435,7 +439,7 @@ border-radius: 5px;</string>
        </spacer>
       </item>
       <item>
-       <widget class="QFrame" name="netlabel_frame">
+       <widget class="QWidget" name="net_label_widget" native="true">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -553,7 +557,7 @@ border-radius: 5px;</string>
        </spacer>
       </item>
       <item>
-       <widget class="QFrame" name="mine_label_frame">
+       <widget class="QWidget" name="mine_label_widget" native="true">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>

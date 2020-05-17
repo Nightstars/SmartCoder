@@ -2,10 +2,10 @@
     <qresource prefix="/SmartCoder"/>
     <qresource prefix="/skins">
         <file>Resources/skins/skins11.png</file>
-        <file>Resources/skins/skins11.jpg</file>
     </qresource>
     <qresource prefix="/qss">
         <file>Resources/qss/MyTitle.css</file>
+        <file>Resources/qss/myapp.css</file>
     </qresource>
     <qresource prefix="/imgs">
         <file>Resources/imgs/MyTitle/close.png</file>

@@ -6,6 +6,7 @@
 #include "utils.h"
 #include <QBitmap>
 #include <QPainter>
+#include <QMouseEvent>
 
 class SmartCoder : public BaseWindow
 {
@@ -13,11 +14,14 @@ class SmartCoder : public BaseWindow
 
 public:
 	SmartCoder(QWidget *parent = Q_NULLPTR);
-
+	bool eventFilter(QObject* obj, QEvent* event);	// 添加事件过滤器声明
 private:
 	Ui::SmartCoderClass ui;
 	void initTitleBar();
 	 // 初始化控件;
 	void initControl();
 	utils myutils;
+	//初始化信号与槽
+	void initConnections();
+
 };
