@@ -89,12 +89,35 @@ void SmartCoder::initControl()
 #pragma region 事件绑定
 void SmartCoder::initConnections()
 {
-	
+	connect(ui.pushButton_disassembly, SIGNAL(clicked()), this, SLOT(onPushButton_disassemblyClicked()));
 }
 #pragma endregion
 
 #pragma region 主功能按钮点击事件
-
+void SmartCoder::onPushButton_disassemblyClicked() {
+	typedef int(*EXECMEFUNC)(char* cmd, char* result);
+	HINSTANCE hDllInst;
+	hDllInst = LoadLibrary(L"./common/3676d55f84497cbeadfc614c1b1b62fc/commander.dll");
+	if (NULL == hDllInst)
+	{
+		FreeLibrary(hDllInst);
+		//cout << "LoadLibrary() error!" << endl;
+	}
+	EXECMEFUNC execmd_hide = (EXECMEFUNC)GetProcAddress(hDllInst, "execmd_hide");
+	if (!execmd_hide)
+	{
+		//cout << "GetProcAddress() error!" << endl;
+	}
+	char result[1024 * 4] = "";                   //定义存放结果的字符串数组 
+	char* pc = new char[100];
+	strcpy(pc, "ipconfig");
+	if (1 == execmd_hide(pc, result)) {
+		//printf(result);
+		//QMessageBox::information(NULL, "Title", QString::fromLocal8Bit(result), QMessageBox::Yes, QMessageBox::Yes);
+		ui.textEdit_assemblyConsole->append(QString::fromLocal8Bit(result));
+	}
+	FreeLibrary(hDllInst);
+}
 #pragma endregion
 
 #pragma region 事件过滤器

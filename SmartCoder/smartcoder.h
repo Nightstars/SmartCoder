@@ -7,6 +7,8 @@
 #include <QBitmap>
 #include <QPainter>
 #include <QMouseEvent>
+#include <Windows.h>
+#include <QMessageBox>
 
 class SmartCoder : public BaseWindow
 {
@@ -23,5 +25,6 @@ private:
 	utils myutils;
 	//初始化信号与槽
 	void initConnections();
-
+private slots:
+	void onPushButton_disassemblyClicked();
 };

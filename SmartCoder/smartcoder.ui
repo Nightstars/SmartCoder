@@ -695,7 +695,7 @@ border-top-right-radius: 5px;</string>
          <string notr="true">background-color: rgb(255, 255, 255,90);</string>
         </property>
         <property name="currentIndex">
-         <number>1</number>
+         <number>2</number>
         </property>
         <widget class="QWidget" name="codegen_page">
          <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -1835,7 +1835,7 @@ border-top-right-radius: 5px;</string>
              </spacer>
             </item>
             <item>
-             <widget class="QTextEdit" name="textEdit"/>
+             <widget class="QTextEdit" name="textEdit_assemblyConsole"/>
             </item>
             <item>
              <spacer name="horizontalSpacer_18">
