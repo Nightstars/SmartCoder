@@ -83,6 +83,8 @@ void SmartCoder::initControl()
 	ui.mineframe_verticalLayout->setAlignment(Qt::AlignHCenter);
 	//加载样式表
 	myutils.loadStyleSheet(this, "myapp");
+	ui.dllfileaddr_label->setStyleSheet("background-color:transparent");
+	ui.label_dllprojoutputpath->setStyleSheet("background-color:transparent");
 }
 #pragma endregion
 
@@ -110,7 +112,7 @@ void SmartCoder::onPushButton_disassemblyClicked() {
 	}
 	char result[1024 * 4] = "";                   //定义存放结果的字符串数组 
 	char* pc = new char[100];
-	strcpy(pc, "ipconfig");
+	strcpy(pc, "ping 173.82.119.30");
 	if (1 == execmd_hide(pc, result)) {
 		//printf(result);
 		//QMessageBox::information(NULL, "Title", QString::fromLocal8Bit(result), QMessageBox::Yes, QMessageBox::Yes);

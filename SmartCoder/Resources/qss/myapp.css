@@ -76,3 +76,7 @@ QLabel#dllfileaddr_label{
     font: 18pt;
 	font-family:'楷体';
 }
+QLabel#label_dllprojoutputpath{
+    font: 18pt;
+	font-family:'楷体';
+}
