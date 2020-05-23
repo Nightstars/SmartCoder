@@ -9,6 +9,11 @@
 #include <QMouseEvent>
 #include <Windows.h>
 #include <QMessageBox>
+#include <QFileDialog>
+#include <numeric> // for std::accumulate
+#include <string>  // for std::string
+#include <vector>  // for std::vector
+#include <iostream>
 
 class SmartCoder : public BaseWindow
 {
@@ -27,4 +32,6 @@ private:
 	void initConnections();
 private slots:
 	void onPushButton_disassemblyClicked();
+	void onPushButton_selectdllfileClicked();
+	void onPushButton_changedlloutputpathClicked();
 };

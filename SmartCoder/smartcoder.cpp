@@ -1,5 +1,5 @@
 ﻿#include "smartcoder.h"
-
+using namespace std;
 #pragma region 界面
 SmartCoder::SmartCoder(QWidget *parent)
 	: BaseWindow(parent)
@@ -92,10 +92,13 @@ void SmartCoder::initControl()
 void SmartCoder::initConnections()
 {
 	connect(ui.pushButton_disassembly, SIGNAL(clicked()), this, SLOT(onPushButton_disassemblyClicked()));
+	connect(ui.pushButton_selectdllfile, SIGNAL(clicked()), this, SLOT(onPushButton_selectdllfileClicked()));
+	connect(ui.pushButton_changedlloutputpath, SIGNAL(clicked()), this, SLOT(onPushButton_changedlloutputpathClicked()));
 }
 #pragma endregion
 
 #pragma region 主功能按钮点击事件
+//反汇编
 void SmartCoder::onPushButton_disassemblyClicked() {
 	typedef int(*EXECMEFUNC)(char* cmd, char* result);
 	HINSTANCE hDllInst;
@@ -110,15 +113,85 @@ void SmartCoder::onPushButton_disassemblyClicked() {
 	{
 		//cout << "GetProcAddress() error!" << endl;
 	}
-	char result[1024 * 4] = "";                   //定义存放结果的字符串数组 
-	char* pc = new char[100];
-	strcpy(pc, "ping 173.82.119.30");
-	if (1 == execmd_hide(pc, result)) {
-		//printf(result);
-		//QMessageBox::information(NULL, "Title", QString::fromLocal8Bit(result), QMessageBox::Yes, QMessageBox::Yes);
+	char result[1024 * 10] = "";                   //定义存放结果的字符串数组 
+	QString filepath_JustDecompile=QCoreApplication::applicationDirPath();
+	string filepath_endfix = "/plugins/6c595d99813d8c33abd181a4196f88ce/";
+	string file_endfix = "JustDecompile.SmartCoder";
+	string file_endfixNew = "JustDecompile.exe";
+	string command_endfix = " /lang:csharp /vs:2017 /net4.5";
+	string command_target = "/target:";
+	string command_target_file = this->ui.dllfileselected_lineEdit->text().toStdString();
+	string command_out = " /out:";
+	string command_out_file = this->ui.lineEdit_dlloutputprojpath->text().toStdString();;
+	vector<string> vec = { filepath_JustDecompile.toStdString(),filepath_endfix,file_endfixNew," ",command_target, command_target_file,command_out,command_out_file,command_endfix };
+	vector<string> vec_corefilename = { filepath_JustDecompile.toStdString(),filepath_endfix,file_endfix };
+	vector<string> vec_corefilenameNew = { filepath_JustDecompile.toStdString(),filepath_endfix,file_endfixNew };
+	string corefilename;
+	corefilename = accumulate(vec_corefilename.begin(), vec_corefilename.end(), corefilename);
+	string corefilename_new;
+	corefilename_new = accumulate(vec_corefilenameNew.begin(), vec_corefilenameNew.end(), corefilename_new);
+	int rename_flag=rename(corefilename.c_str(), corefilename_new.c_str());
+	string command;
+	command = accumulate(vec.begin(), vec.end(), command);
+	if (1 == execmd_hide(const_cast<char*>(command.c_str()), result)) {
 		ui.textEdit_assemblyConsole->append(QString::fromLocal8Bit(result));
+		this->ui.textEdit_assemblyConsole->moveCursor(QTextCursor::End, QTextCursor::MoveAnchor);
 	}
 	FreeLibrary(hDllInst);
+	int rename_flag_end = rename(corefilename_new.c_str(), corefilename.c_str());
+}
+//选择dll文件
+void SmartCoder::onPushButton_selectdllfileClicked() {
+	QString fileName = QFileDialog::getOpenFileName(
+		this, QStringLiteral("SmartCoder-选择文件"), "C:\\", QStringLiteral("Image files(*.dll *.exe);;All files (*.*)"));
+	if (fileName.isEmpty())
+	{
+		QMessageBox::warning(this, QStringLiteral("警告"), QStringLiteral("打开文件失败!"));
+		return;
+	}
+	else
+	{
+		int nCount = fileName.count();
+		for (int i = 0; i < nCount; i++)
+		{
+			QChar char1 = fileName.at(i);
+			ushort uNum = char1.unicode();
+			if (uNum >= 0x4E00 && uNum <= 0x9FA5)
+			{
+				QMessageBox::warning(this, QStringLiteral("警告"), fileName + "\n\"" + char1 + "\"\t" + QStringLiteral("文件路径不合法"));
+				return;
+			}
+		}
+		QFileInfo fileInfo(fileName);
+		this->ui.dllfileselected_lineEdit->setText(fileName);
+		this->ui.lineEdit_dlloutputprojpath->setText(fileInfo.path());
+	}
+}
+//修改反汇编输出文件夹
+void SmartCoder::onPushButton_changedlloutputpathClicked() {
+	QString file_path = QFileDialog::getExistingDirectory(this, QStringLiteral("请选择保存路径"), "c:\\");
+	if (file_path.isEmpty())
+	{
+		QMessageBox::warning(this, QStringLiteral("警告"), QStringLiteral("未选择任何路径!"));
+		return;
+	}
+	else
+	{
+		int nCount = file_path.count();
+		for (int i = 0; i < nCount; i++)
+		{
+			QChar char1 = file_path.at(i);
+			ushort uNum = char1.unicode();
+			if (uNum >= 0x4E00 && uNum <= 0x9FA5)
+			{
+				QMessageBox::warning(this, QStringLiteral("警告"), file_path + "\n\"" + char1 + "\"\t" + QStringLiteral("路径不合法"));
+				return;
+			}
+		}
+		this->ui.lineEdit_dlloutputprojpath->setText(file_path);
+	}
+	/*this->ui.console->moveCursor(QTextCursor::End, QTextCursor::MoveAnchor);
+	this->ui.console->insertPlainText(QStringLiteral("SmartPR>正在保存识别结果...\n"));*/
 }
 #pragma endregion
 
